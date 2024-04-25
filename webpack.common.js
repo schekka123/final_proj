@@ -10,15 +10,15 @@ module.exports = {
         publicPath: "/dist/"
     },
     resolve: {
-        extensions: [".js"] // if we were using React.js, we would include ".jsx"
+        extensions: [".js"]
     },
     module: {
         rules: [
             {
-                test: /\.js$/, // if we were using React.js, we would use \.jsx?$/
+                test: /\.js$/,
                 use: {
                     loader: "babel-loader",
-                    options: { presets: ["env"] } // if we were using React.js, we would include "react"
+                    options: { presets: ["env"] }
                 }
             },
             {
@@ -61,6 +61,6 @@ module.exports = {
         // all options are optional
         filename: "[name].css",
         chunkFilename: "[id].css",
-        ignoreOrder: false // Enable to remove warnings about conflicting order
+        ignoreOrder: false
     }), require("autoprefixer")]
 };
