@@ -22,7 +22,7 @@ class Court {
             .attr('y', 0)
             .attr('width', courtWidth)
             .attr('height', courtHeight)
-            .attr('fill', 'black');
+            .attr('fill', '#dfbb85');
 
         // key 
         this.svg.append('rect')
@@ -65,14 +65,14 @@ class Court {
             .attr('y', 0)
             .attr('width', 29.5)
             .attr('height', 140)
-            .attr('fill', 'black');
+            .attr('fill', '#dfbb85');
 
         this.svg.append('rect')
             .attr('x', 470.5)
             .attr('y', 0)
             .attr('width', 29)
             .attr('height', 140)
-            .attr('fill', 'black');
+            .attr('fill', '#dfbb85');
 
         // backboard
         this.svg.append("line")
@@ -116,7 +116,7 @@ class Court {
             .attr('y', 430)
             .attr('width', 50)
             .attr('height', 12)
-            .attr('fill', 'skyblue')
+            .attr('fill', 'green')
 
         this.svg.append("text")
             .attr("x", 434)
@@ -125,7 +125,7 @@ class Court {
             .attr("dy", ".35em")
             .attr("font-family", "Oswald")
             .text("Made")
-            .style("fill", "#D5D5D5")
+            .style("fill", "#green")
 
         // key missed
         this.svg.append('rect')
@@ -133,7 +133,7 @@ class Court {
             .attr('y', 410)
             .attr('width', 50)
             .attr('height', 12)
-            .attr('fill', 'darkred')
+            .attr('fill', 'red')
 
         this.svg.append("text")
             .attr("x", 428)
@@ -142,7 +142,7 @@ class Court {
             .attr("font-size", 14)
             .attr("font-family", "Oswald")
             .text("Missed")
-            .style("fill", "#D5D5D5")
+            .style("fill", "red")
     }
 }
 

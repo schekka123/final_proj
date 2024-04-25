@@ -1,6 +1,10 @@
 html {
-    background-color: black;
-}
+    height: 100%;
+    background-image: url('/assets/basketball-ball-on-neon-light-600nw-1928326211.webp'); /* Make sure the path to your image is correct */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+ }
 
 html, body {
     max-width: 100%;
@@ -388,6 +392,5 @@ footer {
 .personal-div a img:hover {
     filter: hue-rotate(180deg);
 }
-
 
 

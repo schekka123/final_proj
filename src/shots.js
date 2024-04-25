@@ -4,19 +4,19 @@ const CONSTANTS = {
     WIDTH: 550,
     HEIGHT: 470,
     SHOT_OPACITY: "0.7",
-}
-
-class Shots {
+ }
+ 
+ class Shots {
     constructor(svg, playerName, season, date, period) {
         this.svg = svg;
         this.played = false;
-
+ 
         d3.csv(`./dataset/${season}.csv`)
             .then(function (d) {
                 d.forEach(player => {
                     const dateConditional = date === undefined ? true : player.game_date === date;
                     const periodConditional = period === undefined ? true : player.period === period;
-
+ 
                     if (player.name === playerName && dateConditional && periodConditional) {
                         this.played = true;
                         if (player.shot_made_flag === "1"){
@@ -30,10 +30,10 @@ class Shots {
                 if(!this.played) this.renderUnavailable();
             }.bind(this))
     }
-
+ 
     hexCenters() {
         const centers = [];
-
+ 
         for(let i = 0; i < CONSTANTS.ROWS; i++) {
             for(let j = 0; j < CONSTANTS.COLS; j++) {
                 // Math.sqrt(3) ~ 1.75
@@ -42,7 +42,7 @@ class Shots {
         }
         return centers;
     }
-
+ 
     renderUnavailable() {
         this.svg.append("text")
             .attr("x", 50)
@@ -53,10 +53,10 @@ class Shots {
             .text("Player Injured / Not Yet Drafted")
             .style("fill", "#D5D5D5")
     }
-
+ 
     render(playerPos, shotFlag) {
         const hexbin = d3.hexbin().radius(5);
-
+ 
         if(shotFlag === "made") {
             this.svg.append("g")
                 .selectAll(".hexagon")
@@ -67,7 +67,7 @@ class Shots {
                 })
                 .attr("stroke", "white")
                 .attr('transform', 'translate(250, 52.5)')
-                .attr("fill", "skyblue")
+                .attr("fill", "green")
                 .attr("fill-opacity", CONSTANTS.SHOT_OPACITY)
                 .attr("stroke-width", "0.1px");
         } else if (shotFlag === "missed") {
@@ -80,13 +80,14 @@ class Shots {
                 })
                 .attr("stroke", "white")
                 .attr('transform', 'translate(250, 52.5)')
-                .attr("fill", "darkred")
+                .attr("fill", "red")
                 .attr("fill-opacity", CONSTANTS.SHOT_OPACITY)
                 .attr("stroke-width", "0.1px");
         }
     }
-
-    
-}
-
-export default Shots;
+ 
+   
+ }
+ 
+ export default Shots;
+ 
