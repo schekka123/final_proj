@@ -5,5 +5,3 @@ module.exports = merge(common, {
     mode: "production",
     devtool: "source-map"
 });
-
-// production env
